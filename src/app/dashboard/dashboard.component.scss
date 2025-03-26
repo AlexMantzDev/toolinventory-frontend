@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    flex-grow: 1;
+}
+
+.dashboard {
+    border-top: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    
+}
+
+.sidenav {
+    width: 40%;
+    border-right: 2px solid black;
+}
+
+.main {
+    width: 60%;
+}

@@ -1,0 +1,16 @@
+<nav>
+    <ul class="app-toolbar">
+        <li class="button-wrapper">
+            <button class="toolbar-option" type="button"><a routerLink="/login">Login</a></button>
+        </li>
+        <li class="button-wrapper">
+            <button class="toolbar-option" type="button"><a routerLink="/register">Register</a></button>
+        </li>
+        <li class="button-wrapper">
+            <button class="toolbar-option" type="button" (click)="logout()"><a routerLink="/">Logout</a></button>
+        </li>
+    </ul>
+    @if(authService.user$ | async; as user) {
+        <p class="user">{{user.email}}</p>
+    }
+</nav>

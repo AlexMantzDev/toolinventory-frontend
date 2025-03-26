@@ -1,0 +1,13 @@
+<div class="tool-row header">
+    <div>Tool Code</div>
+    <div>Name</div>
+    <div>Status</div>
+</div>
+@for(tool of tools$ | async; track tool.id) {
+    <div class="tool-row">
+        <div>{{tool.code}}</div>
+        <div>{{tool.name}}</div>
+        <div>{{tool.status}}</div>
+    </div>
+    
+}

@@ -1,38 +1,56 @@
-<form class="login-form">
-  <label for="name">Email: </label>
-  <input
-    name="email"
-    id="email"
-    type="email"
-    placeholder="JohnDoe@example.com"
-    formControlName="email"
-    autofocus
-    tabindex="1"
-    class="form-input"
-  />
-  <p class="invalid">invalid email</p>
-  <br />
-  <label for="password">Password: </label>
-  <input
-    name="password"
-    id="password"
-    type="password"
-    formControlName="password"
-    #passwordRef
-    tabindex="2"
-    class="form-input"
-  />
-  <button
-    type="button"
-    form=""
-    (click)="togglePassword(passwordRef)"
-    tabindex="3"
-  >
+<dialog class="dialog" open>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <label for="email">Email: </label>
+    <input
+      name="email"
+      id="email"
+      type="email"
+      placeholder="JohnDoe@example.com"
+      formControlName="email"
+      class="form-input"
+    />
+    
+  </div>
+  @if(emailIsInvalid) {
+    <div class="form-row">
+      <p class="invalid">invalid email.</p>
+    </div>
+  }
+  <div class="form-row">
+    <label for="password">Password: </label> 
+    <input
+      name="password"
+      id="password"
+      type="password"
+      formControlName="password"
+      #passwordRef
+      class="form-input"
+    />
+    <button
+      type="button"
+      (click)="togglePassword(passwordRef)"
+      id="show-btn"
+    >
     @if(passwordRef.type==='password') { show } @else { hide }
-  </button>
-  <p class="invalid">email or password incorrect</p>
+    </button>
+    
+  </div>
+  @if(passwordIsInvalid) {
+    <div class="form-row">
+      <p class="invalid">password is required.</p>
+    </div>
+  }
+  <div class="form-row">
+    <button id="submit">submit</button>
+  </div>
+  
+  
+  
+  
 
-  <br />
-  <button>submit</button>
+  
 </form>
+</dialog>
+
 <a routerLink="/forgot-pass">Forgot Password</a>

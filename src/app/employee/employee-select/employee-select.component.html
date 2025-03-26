@@ -1,0 +1,11 @@
+<p>Employee:
+@if(employeeService.employee$ | async; as employee) {
+    {{employee.lastName}},{{employee.firstName}}
+} @else {
+    undefined
+}
+</p>
+<form  [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <label for="code">Input: </label><input id="code" type="text" name="code" formControlName="code">
+    <button>submit</button>
+</form>
